@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<AdminApplication.Models.Student>
+
+
+<div class="container">
+   
+
+    <div class="row m-5">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        StudentIndex
+                    </th>
+                    <th>
+                        FirstName
+                    </th>
+                    <th>
+                        LastName
+                    </th>
+                    <th>Embg</th>
+                    <th>PhoneNumber</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    var item = Model[i];
+                    <tr>
+                        <td>@(i + 1)</td>
+                        <td>
+                            @item.StudentIndex
+                        </td>
+
+                        <td>
+                            @item.FirstName
+                        </td>
+                        <td>
+                            @item.LastName
+                        </td>
+                        <td>
+                            @item.Embg
+                        </td>
+                        <td>
+                            @item.PhoneNumber
+                        </td>
+                        <td>
+                            |
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">View Order</a>
+                        </td>
+                        
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+</div>
